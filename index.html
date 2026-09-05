@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2140,6 +2139,55 @@ footer {
     font-size: 16px;
 }
 
+
+.video-controls {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border: 1px solid rgba(240,217,149,.28);
+    border-radius: 999px;
+    background: rgba(3,11,23,.78);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.35);
+}
+.video-control-btn {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--gold-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .25s ease, transform .25s ease;
+}
+.video-control-btn:hover {
+    background: rgba(214,181,106,.18);
+    transform: scale(1.06);
+}
+.video-control-btn i { font-size: 12px; }
+.video-progress {
+    flex: 1;
+    min-width: 60px;
+    height: 3px;
+    accent-color: var(--gold);
+    cursor: pointer;
+}
+.video-card:not(.playing) .video-controls { opacity: .9; }
+@media (max-width: 640px) {
+    .video-controls { left: 8px; right: 8px; bottom: 8px; gap: 4px; padding: 6px 7px; }
+    .video-control-btn { width: 28px; height: 28px; flex-basis: 28px; }
+}
+
 @media (max-width: 700px) {
     .video-grid {
         grid-template-columns: 1fr;
@@ -2154,6 +2202,243 @@ footer {
 
     .video-caption-title {
         font-size: 21px;
+    }
+}
+
+
+/* =====================================================
+   FUN ACTIVITIES
+===================================================== */
+.fun-activities-section {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(214,181,106,.08), transparent 38%),
+        var(--deep);
+}
+
+.fun-activities-intro {
+    text-align: center;
+}
+
+.fun-activities-date {
+    margin-top: 18px;
+    color: var(--gold-light);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    letter-spacing: .08em;
+}
+
+.fun-games {
+    max-width: 850px;
+    margin: 48px auto 0;
+    border-top: 1px solid rgba(214,181,106,.28);
+}
+
+.fun-game {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    min-height: 78px;
+    padding: 14px 8px;
+    border-bottom: 1px solid rgba(214,181,106,.16);
+}
+
+.fun-game-time {
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.fun-game-name {
+    color: var(--ivory);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    line-height: 1.1;
+}
+
+.fun-game-telugu {
+    margin-top: 4px;
+    color: rgba(255,255,255,.92);
+    font-family: "Noto Serif Telugu", serif;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+@media (max-width: 640px) {
+    .fun-activities-date { font-size: 20px; }
+    .fun-games { margin-top: 35px; }
+    .fun-game {
+        grid-template-columns: 95px 1fr;
+        min-height: 72px;
+        padding: 12px 2px;
+    }
+    .fun-game-time {
+        font-size: 8px;
+        letter-spacing: .08em;
+    }
+    .fun-game-name { font-size: 20px; }
+    .fun-game-telugu { font-size: 16px; }
+}
+
+
+
+/* =====================================================
+   LAST YEAR WINNERS
+===================================================== */
+.winners-section {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(214,181,106,.08), transparent 38%),
+        var(--navy);
+}
+
+.winners-intro {
+    text-align: center;
+}
+
+.winners-grid {
+    max-width: 1050px;
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+}
+
+.winner-card {
+    overflow: hidden;
+    background: rgba(2,8,18,.72);
+    border: 1px solid rgba(214,181,106,.35);
+    box-shadow: 0 25px 80px rgba(0,0,0,.38);
+    transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+
+.winner-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(240,217,149,.65);
+    box-shadow: 0 30px 90px rgba(0,0,0,.48);
+}
+
+.winner-photo {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--deep);
+}
+
+.winner-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s ease;
+}
+
+.winner-card:hover .winner-photo img {
+    transform: scale(1.035);
+}
+
+.winner-info {
+    padding: 22px 22px 25px;
+    text-align: center;
+}
+
+.winner-category {
+    color: var(--gold);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+}
+
+.winner-name {
+    margin-top: 8px;
+    color: var(--ivory);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    line-height: 1.1;
+}
+
+.winner-telugu {
+    margin-top: 4px;
+    color: var(--gold-light);
+    font-family: "Noto Serif Telugu", serif;
+    font-size: 15px;
+}
+
+.winner-medal {
+    margin-top: 10px;
+    color: var(--gold-light);
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    .winners-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-top: 35px;
+    }
+
+    .winner-name {
+        font-size: 27px;
+    }
+
+    .winner-info {
+        padding: 18px 16px 21px;
+    }
+}
+
+
+
+/* =====================================================
+   HERO SCROLL DOWN INDICATOR
+===================================================== */
+.scroll-down {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold-light);
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    opacity: .9;
+    z-index: 5;
+    cursor: pointer;
+    animation: scrollBounce 2s ease-in-out infinite;
+    transition: opacity .3s ease;
+}
+
+.scroll-down:hover {
+    opacity: 1;
+}
+
+.scroll-down i {
+    font-size: 12px;
+}
+
+@keyframes scrollBounce {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, 8px);
+    }
+}
+
+@media (max-width: 700px) {
+    .scroll-down {
+        bottom: 24px;
+        font-size: 8px;
+        letter-spacing: .22em;
+    }
+
+    .scroll-down i {
+        font-size: 11px;
     }
 }
 
@@ -2246,6 +2531,11 @@ footer {
         </p>
 
 
+    </div>
+
+    <div class="scroll-down" onclick="document.querySelector('.welcome-section')?.scrollIntoView({ behavior: 'smooth' })">
+        <span>Scroll Down</span>
+        <i class="fa-solid fa-chevron-down"></i>
     </div>
 
 </section>
@@ -2529,6 +2819,71 @@ footer {
 
 </section>
 
+<!-- =====================================================
+     FUN ACTIVITIES — DAY TWO
+===================================================== -->
+<section class="section-deep py-24 md:py-36 fun-activities-section">
+    <div class="max-w-5xl mx-auto px-6">
+
+        <div class="fun-activities-intro">
+            <p class="eyebrow">Day Two · Fun Activities</p>
+
+            <h2 class="display section-title">Fun Activities</h2>
+
+            <div class="divider"></div>
+
+            <p class="fun-activities-date">15 September 2026</p>
+        </div>
+
+        <div class="fun-games">
+
+            <div class="fun-game">
+                <div class="fun-game-time">06:00 PM</div>
+                <div>
+                    <div class="fun-game-name">Anthakshari</div>
+                    <div class="fun-game-telugu">అంత్యాక్షరి</div>
+                </div>
+            </div>
+
+            <div class="fun-game">
+                <div class="fun-game-time">06:30 PM</div>
+                <div>
+                    <div class="fun-game-name">Musical Chair</div>
+                    <div class="fun-game-telugu">మ్యూజికల్ చైర్</div>
+                </div>
+            </div>
+
+            <div class="fun-game">
+                <div class="fun-game-time">07:00 PM</div>
+                <div>
+                    <div class="fun-game-name">Lemon Spoon</div>
+                    <div class="fun-game-telugu">నిమ్మకాయ చెంచా</div>
+                </div>
+            </div>
+
+            <div class="fun-game">
+                <div class="fun-game-time">07:30 PM</div>
+                <div>
+                    <div class="fun-game-name">Balloon Hold</div>
+                    <div class="fun-game-telugu">బెలూన్ హోల్డ్</div>
+                </div>
+            </div>
+
+            <div class="fun-game">
+                <div class="fun-game-time">08:00 PM</div>
+                <div>
+                    <div class="fun-game-name">Cup Hit</div>
+                    <div class="fun-game-telugu">కప్ హిట్</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
 
 <!-- =====================================================
      DIVINE GANESHA
@@ -2698,6 +3053,122 @@ footer {
 
 
 <!-- =====================================================
+     LAST YEAR LADDU WINNERS
+===================================================== -->
+<section class="section-deep py-24 md:py-36 winners-section">
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="winners-intro">
+            <p class="eyebrow">Last Year · Special Recognition</p>
+            <h2 class="display section-title">Laddu Winners</h2>
+            <div class="divider"></div>
+            <p class="text-sm text-gray-400 max-w-xl mx-auto leading-7">
+                Celebrating the winners of last year's Laddu event.
+            </p>
+        </div>
+
+        <div class="winners-grid">
+
+            <div class="winner-card">
+                <div class="winner-photo">
+                    <img src="images/winners/laddu-winner-1.jpeg"
+                         alt="Laddu Winner - Ravi Kumar"
+                         loading="lazy">
+                </div>
+                <div class="winner-info">
+                    <div class="winner-category">Laddu Winner</div>
+                    <div class="winner-name">Sudha Sudhakar Reddy</div>
+                    <div class="winner-telugu">లడ్డూ విజేత</div>
+                    <div class="winner-medal"><i class="fa-solid fa-trophy"></i> Winner · 2025</div>
+                </div>
+            </div>
+
+            <div class="winner-card">
+                <div class="winner-photo">
+                    <img src="images/winners/laddu-winner-2.jpeg"
+                         alt="Laddu Winner - Sai Kiran"
+                         loading="lazy">
+                </div>
+                <div class="winner-info">
+                    <div class="winner-category">Laddu Winner</div>
+                    <div class="winner-name">Sunkireddy Lakshmi Reddy</div>
+                    <div class="winner-telugu">లడ్డూ విజేత</div>
+                    <div class="winner-medal"><i class="fa-solid fa-trophy"></i> Winner · 2025</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =====================================================
+     LAST YEAR MUSICAL CHAIRS WINNERS
+===================================================== -->
+<section class="section-dark py-24 md:py-36 winners-section">
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="winners-intro">
+            <p class="eyebrow">Last Year · Fun Activities</p>
+            <h2 class="display section-title">Musical Chairs Winners</h2>
+            <div class="divider"></div>
+            <p class="text-sm text-gray-400 max-w-xl mx-auto leading-7">
+                A special moment celebrating last year's Musical Chairs winners.
+            </p>
+        </div>
+
+        <div class="winners-grid">
+
+            <div class="winner-card">
+                <div class="winner-photo">
+                    <img src="images/winners/musical-chair-winner-1.jpeg"
+                         alt="Musical Chairs Winner - Harsha Vardhan"
+                         loading="lazy">
+                </div>
+                <div class="winner-info">
+                    <div class="winner-category">Musical Chairs Winners</div>
+                    <div class="winner-name">Banka Meghana & Ramireddy Pavithra</div>
+                    <div class="winner-telugu">మ్యూజికల్ చైర్స్ విజేత</div>
+                    <div class="winner-medal"><i class="fa-solid fa-trophy"></i> Winner · 2025</div>
+                </div>
+            </div>
+
+            <div class="winner-card">
+                <div class="winner-photo">
+                    <img src="images/winners/musical-chair-winner-2.jpeg"
+                         alt="Musical Chairs Winner - Vamsi Krishna"
+                         loading="lazy">
+                </div>
+                <div class="winner-info">
+                    <div class="winner-category">Musical Chairs Winner</div>
+                    <div class="winner-name">Ramireddy Jhansi & Banka Meghana </div>
+                    <div class="winner-telugu">మ్యూజికల్ చైర్స్ విజేత</div>
+                    <div class="winner-medal"><i class="fa-solid fa-trophy"></i> Winner · 2025</div>
+                </div>
+            </div>
+
+            <div class="winner-card">
+                <div class="winner-photo">
+                    <img src="images/winners/musical-chair-winner-3.jpeg"
+                         alt="Musical Chairs Winner - Winner 3"
+                         loading="lazy">
+                </div>
+                <div class="winner-info">
+                    <div class="winner-category">Musical Chairs Winner</div>
+                    <div class="winner-name">Ramireddy Deekshith Reddy</div>
+                    <div class="winner-telugu">మ్యూజికల్ చైర్స్ విజేత</div>
+                    <div class="winner-medal"><i class="fa-solid fa-trophy"></i> Winner · 2025</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- =====================================================
      LAST YEAR MEMORIES
 ===================================================== -->
 
@@ -2744,7 +3215,7 @@ footer {
                 <div class="memory-slide active">
 
                     <img
-                        src="images/memories/01.jpg"
+                        src="images/memories/01.jpeg"
                         alt="2025 Memory 1"
                         loading="lazy">
 
@@ -2772,7 +3243,7 @@ footer {
                 <div class="memory-slide">
 
                     <img
-                        src="images/memories/03.jpg"
+                        src="images/memories/05.jpeg"
                         alt="2025 Memory 3"
                         loading="lazy">
 
@@ -2786,7 +3257,7 @@ footer {
                 <div class="memory-slide">
 
                     <img
-                        src="images/memories/04.jpg"
+                        src="images/memories/04.jpeg"
                         alt="2025 Memory 4"
                         loading="lazy">
 
@@ -2800,36 +3271,8 @@ footer {
                 <div class="memory-slide">
 
                     <img
-                        src="images/memories/05.jpg"
+                        src="images/memories/03.jpeg"
                         alt="2025 Memory 5"
-                        loading="lazy">
-
-                    <div class="memory-overlay"></div>
-
-                </div>
-
-
-                <!-- 06 -->
-
-                <div class="memory-slide">
-
-                    <img
-                        src="images/memories/06.jpg"
-                        alt="2025 Memory 6"
-                        loading="lazy">
-
-                    <div class="memory-overlay"></div>
-
-                </div>
-
-
-                <!-- 07 -->
-
-                <div class="memory-slide">
-
-                    <img
-                        src="images/memories/07.jpg"
-                        alt="2025 Memory 7"
                         loading="lazy">
 
                     <div class="memory-overlay"></div>
@@ -2863,7 +3306,7 @@ footer {
 
                     &nbsp; / &nbsp;
 
-                    07
+                    05
 
                 </div>
 
@@ -2910,16 +3353,6 @@ footer {
                 <button
                     class="memory-dot"
                     data-slide="4">
-                </button>
-
-                <button
-                    class="memory-dot"
-                    data-slide="5">
-                </button>
-
-                <button
-                    class="memory-dot"
-                    data-slide="6">
                 </button>
 
             </div>
@@ -2969,6 +3402,22 @@ footer {
                     <button class="video-play-btn" type="button" aria-label="Play celebration video 1">
                         <i class="fa-solid fa-play"></i>
                     </button>
+
+                    <div class="video-controls">
+                        <button class="video-control-btn video-toggle-btn" type="button" aria-label="Play or pause video">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                        <button class="video-control-btn video-stop-btn" type="button" aria-label="Stop video">
+                            <i class="fa-solid fa-stop"></i>
+                        </button>
+                        <input class="video-progress" type="range" min="0" max="100" value="0" aria-label="Video progress">
+                        <button class="video-control-btn video-mute-btn" type="button" aria-label="Mute video">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                        <button class="video-control-btn video-fullscreen-btn" type="button" aria-label="Fullscreen">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="video-caption">
@@ -2988,6 +3437,22 @@ footer {
                     <button class="video-play-btn" type="button" aria-label="Play celebration video 2">
                         <i class="fa-solid fa-play"></i>
                     </button>
+
+                    <div class="video-controls">
+                        <button class="video-control-btn video-toggle-btn" type="button" aria-label="Play or pause video">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                        <button class="video-control-btn video-stop-btn" type="button" aria-label="Stop video">
+                            <i class="fa-solid fa-stop"></i>
+                        </button>
+                        <input class="video-progress" type="range" min="0" max="100" value="0" aria-label="Video progress">
+                        <button class="video-control-btn video-mute-btn" type="button" aria-label="Mute video">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                        <button class="video-control-btn video-fullscreen-btn" type="button" aria-label="Fullscreen">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="video-caption">
@@ -3866,63 +4331,124 @@ if (
 
 /* =====================================================
    CELEBRATION VIDEOS
-   Video audio takes priority over background music.
+   Custom play / pause / stop / progress / mute / fullscreen.
 ===================================================== */
-const celebrationVideos =
-    document.querySelectorAll(".celebration-video");
-
+const celebrationVideos = document.querySelectorAll(".celebration-video");
 let bgWasPlayingBeforeVideo = false;
 
 celebrationVideos.forEach((video) => {
     const card = video.closest(".video-card");
     const playButton = card.querySelector(".video-play-btn");
+    const toggleButton = card.querySelector(".video-toggle-btn");
+    const stopButton = card.querySelector(".video-stop-btn");
+    const muteButton = card.querySelector(".video-mute-btn");
+    const fullscreenButton = card.querySelector(".video-fullscreen-btn");
+    const progress = card.querySelector(".video-progress");
 
-    playButton.addEventListener("click", async () => {
+    const updateToggle = () => {
+        toggleButton.innerHTML = video.paused
+            ? '<i class="fa-solid fa-play"></i>'
+            : '<i class="fa-solid fa-pause"></i>';
+        toggleButton.setAttribute("aria-label", video.paused ? "Play video" : "Pause video");
+        playButton.style.opacity = video.paused && video.currentTime === 0 ? "1" : "0";
+        playButton.style.pointerEvents = video.paused && video.currentTime === 0 ? "auto" : "none";
+    };
+
+    const updateProgress = () => {
+        progress.value = video.duration ? (video.currentTime / video.duration) * 100 : 0;
+    };
+
+    const playVideo = async () => {
         celebrationVideos.forEach((otherVideo) => {
             if (otherVideo !== video) {
                 otherVideo.pause();
-                otherVideo.closest(".video-card")
-                    .classList.remove("playing");
+                otherVideo.currentTime = 0;
+                otherVideo.closest(".video-card").classList.remove("playing");
             }
         });
 
-        bgWasPlayingBeforeVideo =
-            !bgAudio.paused && !bgAudio.ended;
-
+        bgWasPlayingBeforeVideo = !bgAudio.paused && !bgAudio.ended;
         bgAudio.pause();
 
         try {
             await video.play();
-            card.classList.add("playing");
         } catch (error) {
             console.log("Video playback requires user interaction.");
         }
+    };
+
+    playButton.addEventListener("click", playVideo);
+    toggleButton.addEventListener("click", () => {
+        if (video.paused) playVideo();
+        else video.pause();
     });
 
+    stopButton.addEventListener("click", () => {
+        video.pause();
+        video.currentTime = 0;
+        card.classList.remove("playing");
+        updateProgress();
+        updateToggle();
+        if (bgWasPlayingBeforeVideo) {
+            bgAudio.play().catch(() => {});
+            bgWasPlayingBeforeVideo = false;
+        }
+    });
+
+    muteButton.addEventListener("click", () => {
+        video.muted = !video.muted;
+        muteButton.innerHTML = video.muted
+            ? '<i class="fa-solid fa-volume-xmark"></i>'
+            : '<i class="fa-solid fa-volume-high"></i>';
+        muteButton.setAttribute("aria-label", video.muted ? "Unmute video" : "Mute video");
+    });
+
+    fullscreenButton.addEventListener("click", async () => {
+        try {
+            if (document.fullscreenElement) {
+                await document.exitFullscreen();
+            } else {
+                await card.requestFullscreen();
+            }
+        } catch (error) {
+            console.log("Fullscreen is not available.");
+        }
+    });
+
+    progress.addEventListener("input", () => {
+        if (video.duration) {
+            video.currentTime = (Number(progress.value) / 100) * video.duration;
+        }
+    });
+
+    video.addEventListener("loadedmetadata", updateProgress);
+    video.addEventListener("timeupdate", updateProgress);
+
     video.addEventListener("play", () => {
-        bgWasPlayingBeforeVideo = true;
         bgAudio.pause();
         card.classList.add("playing");
+        updateToggle();
     });
 
     video.addEventListener("pause", () => {
         card.classList.remove("playing");
-
-        if (bgWasPlayingBeforeVideo) {
-            bgAudio.play().catch(() => {});
-        }
+        updateToggle();
     });
 
     video.addEventListener("ended", () => {
         card.classList.remove("playing");
-
+        video.currentTime = 0;
+        updateProgress();
+        updateToggle();
         if (bgWasPlayingBeforeVideo) {
             bgAudio.play().catch(() => {});
+            bgWasPlayingBeforeVideo = false;
         }
     });
+
+    updateToggle();
 });
 
-</script>
 </script>
 
 </body>
