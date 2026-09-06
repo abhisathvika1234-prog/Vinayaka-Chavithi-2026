@@ -587,36 +587,102 @@ a {
 ===================================================== */
 
 .karra-section {
+    position: relative;
+    overflow: hidden;
     text-align: center;
+    background:
+        radial-gradient(circle at 50% 12%, rgba(214,181,106,.13), transparent 28%),
+        linear-gradient(180deg, #fffdf8 0%, #fbf7ed 52%, #fffdf8 100%);
+    color: #182337;
+    border-top: 1px solid rgba(214,181,106,.28);
+    border-bottom: 1px solid rgba(214,181,106,.28);
+}
+
+.karra-section::before,
+.karra-section::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: min(720px, 72vw);
+    height: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, transparent, rgba(166,126,45,.55), transparent);
+    pointer-events: none;
+}
+
+.karra-section::before { top: 28px; }
+.karra-section::after { bottom: 28px; }
+
+.karra-section .eyebrow {
+    color: #a67e2d;
+    font-weight: 600;
+    letter-spacing: .38em;
 }
 
 .karra-title-telugu {
     font-family: "Noto Serif Telugu", serif;
-    font-weight: 500;
-    color: #ffffff;
+    font-weight: 600;
+    color: #17243a;
     letter-spacing: .01em;
-    line-height: 1.2;
+    line-height: 1.25;
+    text-shadow: 0 1px 0 rgba(255,255,255,.9);
+}
+
+.karra-section .divider {
+    background: linear-gradient(90deg, transparent, #c59b45, transparent);
+    width: 110px;
+    height: 2px;
+    position: relative;
+}
+
+.karra-section .divider::after {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -56%);
+    padding: 0 10px;
+    color: #b48732;
+    background: #fbf7ed;
+    font-size: 11px;
 }
 
 .karra-date {
-    color: var(--gold-light);
+    color: #8f6b27;
     font-family: "Cormorant Garamond", serif;
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: 600;
     letter-spacing: .08em;
+}
+
+.karra-time {
+    color: #17243a;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: .16em;
 }
 
 .karra-telugu {
     margin-top: 10px;
-    color: var(--gold-light);
+    color: #8f6b27;
+    font-family: "Noto Serif Telugu", serif;
     font-size: 18px;
+    font-weight: 500;
 }
 
 .karra-text {
     max-width: 650px;
     margin: 18px auto 0;
-    color: var(--muted);
+    color: #5c6470;
     font-size: 13px;
     line-height: 1.9;
+}
+
+.karra-section .container,
+.karra-section > div {
+    position: relative;
+    z-index: 1;
 }
 
 /* =====================================================
@@ -1675,6 +1741,12 @@ footer {
         font-size: 17px;
     }
 
+    .karra-section::before { top: 18px; width: 78vw; }
+    .karra-section::after { bottom: 18px; width: 78vw; }
+    .karra-date { font-size: 24px; }
+    .karra-time { font-size: 20px; }
+    .karra-telugu { font-size: 17px; }
+
 
     /* TITLES */
 
@@ -2154,53 +2226,6 @@ footer {
 }
 
 
-.video-controls {
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    z-index: 4;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 10px;
-    border: 1px solid rgba(240,217,149,.28);
-    border-radius: 999px;
-    background: rgba(3,11,23,.78);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,.35);
-}
-.video-control-btn {
-    width: 30px;
-    height: 30px;
-    flex: 0 0 30px;
-    border: 0;
-    border-radius: 50%;
-    background: transparent;
-    color: var(--gold-light);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background .25s ease, transform .25s ease;
-}
-.video-control-btn:hover {
-    background: rgba(214,181,106,.18);
-    transform: scale(1.06);
-}
-.video-control-btn i { font-size: 12px; }
-.video-progress {
-    flex: 1;
-    min-width: 60px;
-    height: 3px;
-    accent-color: var(--gold);
-    cursor: pointer;
-}
-.video-card:not(.playing) .video-controls { opacity: .9; }
-@media (max-width: 640px) {
-    .video-controls { left: 8px; right: 8px; bottom: 8px; gap: 4px; padding: 6px 7px; }
-    .video-control-btn { width: 28px; height: 28px; flex-basis: 28px; }
-}
 
 @media (max-width: 700px) {
     .video-grid {
@@ -2224,9 +2249,42 @@ footer {
    FUN ACTIVITIES
 ===================================================== */
 .fun-activities-section {
+    position: relative;
+    overflow: hidden;
     background:
-        radial-gradient(circle at 50% 0%, rgba(214,181,106,.08), transparent 38%),
-        var(--deep);
+        radial-gradient(circle at 50% 0%, rgba(214,181,106,.16), transparent 34%),
+        radial-gradient(circle at 8% 85%, rgba(214,181,106,.08), transparent 28%),
+        radial-gradient(circle at 92% 85%, rgba(214,181,106,.08), transparent 28%),
+        linear-gradient(180deg, #fffdf8 0%, #f9f5eb 52%, #fffdf9 100%);
+    color: #142238;
+}
+
+.fun-activities-section::before,
+.fun-activities-section::after {
+    content: \"\";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(78%, 900px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(183,145,67,.55), transparent);
+    pointer-events: none;
+}
+
+.fun-activities-section::before { top: 42px; }
+.fun-activities-section::after { bottom: 42px; }
+
+.fun-activities-section .eyebrow {
+    color: #9b7428;
+}
+
+.fun-activities-section .section-title {
+    color: #12233b;
+    text-shadow: 0 1px 0 rgba(255,255,255,.9);
+}
+
+.fun-activities-section .divider {
+    background: #b99143;
 }
 
 .fun-activities-intro {
@@ -2235,7 +2293,7 @@ footer {
 
 .fun-activities-date {
     margin-top: 18px;
-    color: var(--gold-light);
+    color: #9b7428;
     font-family: "Cormorant Garamond", serif;
     font-size: 22px;
     letter-spacing: .08em;
@@ -2244,7 +2302,7 @@ footer {
 .fun-games {
     max-width: 850px;
     margin: 48px auto 0;
-    border-top: 1px solid rgba(214,181,106,.28);
+    border-top: 1px solid rgba(183,145,67,.38);
 }
 
 .fun-game {
@@ -2253,11 +2311,11 @@ footer {
     align-items: center;
     min-height: 78px;
     padding: 14px 8px;
-    border-bottom: 1px solid rgba(214,181,106,.16);
+    border-bottom: 1px solid rgba(183,145,67,.22);
 }
 
 .fun-game-time {
-    color: var(--gold-light);
+    color: #9b7428;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: .14em;
@@ -2265,7 +2323,7 @@ footer {
 }
 
 .fun-game-name {
-    color: var(--ivory);
+    color: #12233b;
     font-family: "Cormorant Garamond", serif;
     font-size: 25px;
     line-height: 1.1;
@@ -2273,7 +2331,7 @@ footer {
 
 .fun-game-telugu {
     margin-top: 4px;
-    color: rgba(255,255,255,.92);
+    color: #4d5663;
     font-family: "Noto Serif Telugu", serif;
     font-size: 17px;
     font-weight: 500;
@@ -3421,7 +3479,7 @@ footer {
                     </video>
                 </div>
 
-                    <div class="video-controls">
+                <div class="video-controls">
                         <button class="video-control-btn video-toggle-btn" type="button" aria-label="Play or pause video">
                             <i class="fa-solid fa-play"></i>
                         </button>
@@ -3435,11 +3493,12 @@ footer {
                         <button class="video-control-btn video-fullscreen-btn" type="button" aria-label="Fullscreen">
                             <i class="fa-solid fa-expand"></i>
                         </button>
-                    </div>
+                </div>
 
                 <div class="video-caption">
-                    <div class="video-caption-title">Ranadheerulu</div>
-                    <div class="video-caption-telugu">రణధీరులు</div>
+                    <div class="video-caption-title">Legacy Boys </div>
+                    <div class="video-caption-telugu">లెగసీ బాయ్స్</div>
+                    
                 </div>
             </div>
 
@@ -3452,7 +3511,7 @@ footer {
                     </video>
                 </div>
 
-                    <div class="video-controls">
+                <div class="video-controls">
                         <button class="video-control-btn video-toggle-btn" type="button" aria-label="Play or pause video">
                             <i class="fa-solid fa-play"></i>
                         </button>
@@ -3466,7 +3525,7 @@ footer {
                         <button class="video-control-btn video-fullscreen-btn" type="button" aria-label="Fullscreen">
                             <i class="fa-solid fa-expand"></i>
                         </button>
-                    </div>
+                </div>
 
                 <div class="video-caption">
                     <div class="video-caption-title">Mahila Mandali</div>
