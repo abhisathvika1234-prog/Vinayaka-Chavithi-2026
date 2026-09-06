@@ -2129,7 +2129,8 @@ footer {
     max-width: 1100px;
     margin: 50px auto 0;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 700px);
+    justify-content: center;
     gap: 30px;
 }
 
@@ -2229,7 +2230,7 @@ footer {
 
 @media (max-width: 700px) {
     .video-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 24px;
         margin-top: 35px;
     }
@@ -3448,8 +3449,7 @@ footer {
 
 <!-- =====================================================
      VIDEO MEMORIES
-     Replace videos/video1.mp4 and videos/video2.mp4
-     with your own videos later.
+     Replace videos/video1.mp4 with your own video later.
 ===================================================== -->
 <section class="section-dark py-24 md:py-36 video-memories-section">
     <div class="max-w-6xl mx-auto px-6">
@@ -3496,40 +3496,8 @@ footer {
                 </div>
 
                 <div class="video-caption">
-                    <div class="video-caption-title">Legacy Boys </div>
-                    <div class="video-caption-telugu">లెగసీ బాయ్స్</div>
-                    
-                </div>
-            </div>
-
-            <!-- VIDEO 2 -->
-            <div class="video-card">
-                <div class="video-frame">
-                    <video class="celebration-video" preload="metadata" playsinline>
-                        <source src="videos/video2.mp4" type="video/mp4">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
-
-                <div class="video-controls">
-                        <button class="video-control-btn video-toggle-btn" type="button" aria-label="Play or pause video">
-                            <i class="fa-solid fa-play"></i>
-                        </button>
-                        <button class="video-control-btn video-stop-btn" type="button" aria-label="Stop video">
-                            <i class="fa-solid fa-stop"></i>
-                        </button>
-                        <input class="video-progress" type="range" min="0" max="100" value="0" aria-label="Video progress">
-                        <button class="video-control-btn video-mute-btn" type="button" aria-label="Mute video">
-                            <i class="fa-solid fa-volume-high"></i>
-                        </button>
-                        <button class="video-control-btn video-fullscreen-btn" type="button" aria-label="Fullscreen">
-                            <i class="fa-solid fa-expand"></i>
-                        </button>
-                </div>
-
-                <div class="video-caption">
-                    <div class="video-caption-title">Mahila Mandali</div>
-                    <div class="video-caption-telugu">మహిళా మండలి</div>
+                    <div class="video-caption-title">Celebration Moments</div>
+                    <div class="video-caption-telugu">వేడుకల జ్ఞాపకాలు</div>
                 </div>
             </div>
 
